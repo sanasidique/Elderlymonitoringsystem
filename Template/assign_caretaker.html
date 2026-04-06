@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Assign Caretaker</title>
+    <style>
+        body { font-family: 'Segoe UI', Arial, sans-serif; background-color: #f0f2f5; padding: 40px; }
+        .table-container { max-width: 900px; margin: auto; background: white; padding: 25px; border-radius: 12px; box-shadow: 0 5px 20px rgba(0,0,0,0.05); }
+
+        h2 { color: #2c3e50; margin-bottom: 25px; font-weight: 600; display: flex; align-items: center; }
+        h2::before { content: '📅'; margin-right: 10px; }
+
+        table { width: 100%; border-collapse: collapse; }
+        th { background-color: #f8f9fa; color: #7f8c8d; text-transform: uppercase; font-size: 12px; letter-spacing: 1px; padding: 15px; text-align: left; border-bottom: 2px solid #edf2f7; }
+        td { padding: 15px; border-bottom: 1px solid #edf2f7; color: #4a5568; vertical-align: middle; }
+        tr:hover { background-color: #fcfcfc; }
+
+        /* Reply/Assign Link Styling */
+        .assign-link {
+            display: inline-block;
+            background-color: #3182ce;
+            color: white;
+            padding: 8px 16px;
+            border-radius: 6px;
+            text-decoration: none;
+            font-size: 0.9em;
+            font-weight: 500;
+            transition: background 0.2s;
+        }
+        .assign-link:hover {
+            background-color: #2b6cb0;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+
+        .patient-name { font-weight: bold; color: #2d3748; }
+        .date-badge { background: #edf2f7; padding: 4px 8px; border-radius: 4px; font-family: monospace; }
+    </style>
+</head>
+<body>
+
+<div class="table-container">
+    <h2>Schedule & Assignments</h2>
+
+    <table>
+        <thead>
+            <tr>
+                <th>SL</th>
+                <th>Patient Name</th>
+                <th>Preferred Date</th>
+                <th>Time Slot</th>
+                <th>Action</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>01</td>
+                <td><span class="patient-name"></span></td>
+                <td><span class="date-badge"></span></td>
+                <td></td>
+                <td>
+                    <a href="assign_form.php?patient_id=101" class="assign-link">Assign Caretaker</a>
+                </td>
+            </tr>
+            <tr>
+                <td>02</td>
+                <td><span class="patient-name"></span></td>
+                <td><span class="date-badge"></span></td>
+                <td></td>
+                <td>
+                    <a href="assign_form.php?patient_id=102" class="assign-link">Assign Caretaker</a>
+                </td>
+            </tr>
+            <tr>
+                <td>03</td>
+                <td><span class="patient-name"></span></td>
+                <td><span class="date-badge"></span></td>
+                <td></td>
+                <td>
+                    <a href="assign_form.php?patient_id=103" class="assign-link">Assign Caretaker</a>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+
+</body>
+</html>

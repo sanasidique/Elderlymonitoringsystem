@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>View Complaints</title>
+    <style>
+        body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; background-color: #f8fafc; padding: 30px; }
+        .container { max-width: 1100px; margin: auto; background: white; padding: 25px; border-radius: 10px; box-shadow: 0 4px 20px rgba(0,0,0,0.08); }
+
+        h2 { color: #1e293b; margin-bottom: 25px; border-left: 5px solid #ef4444; padding-left: 15px; }
+
+        table { width: 100%; border-collapse: collapse; }
+        th { background-color: #f1f5f9; color: #475569; font-size: 0.85rem; text-transform: uppercase; padding: 15px; text-align: left; }
+        td { padding: 15px; border-bottom: 1px solid #e2e8f0; color: #334155; vertical-align: top; }
+        tr:hover { background-color: #f8fafc; }
+
+        /* Complaint Text Styling */
+        .complaint-text { max-width: 300px; font-style: italic; color: #64748b; line-height: 1.4; }
+        .user-info { font-weight: bold; color: #0f172a; }
+        .date-text { font-size: 0.9rem; color: #94a3b8; }
+
+        /* Status Badge */
+        .badge { padding: 4px 8px; border-radius: 12px; font-size: 0.75rem; font-weight: 600; }
+        .pending { background: #fef2f2; color: #dc2626; border: 1px solid #fee2e2; }
+
+        /* Send Reply Link */
+        .reply-link {
+            display: inline-block;
+            color: white;
+            background-color: #ef4444;
+            padding: 8px 16px;
+            text-decoration: none;
+            border-radius: 5px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+        .reply-link:hover {
+            background-color: #dc2626;
+            transform: translateY(-1px);
+            box-shadow: 0 4px 6px rgba(239, 68, 68, 0.2);
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <h2>User Complaints & Grievances</h2>
+
+    <table>
+        <thead>
+            <tr>
+                <th>SL</th>
+                <th>User</th>
+                <th>Complaint Details</th>
+                <th>Date Received</th>
+                <th>Action</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for i in data %}
+            <tr>
+                <td>{{ forloop.counter }}</td>
+                <td>{{ i.USER.name }}</td>
+                <td>{{ i.complaint }}</td>
+                <td>{{ i.date }}</td>
+                <td>
+                    {% if i.reply == 'pending' %}
+                    <a href="/myapp/send_reply/{{ i.id }}" class="reply-link">Send Reply</a>{% else %}{{ i.reply }}{% endif %}
+                </td>
+            </tr>
+{% endfor %}
+        </tbody>
+    </table>
+</div>
+
+</body>
+</html>
